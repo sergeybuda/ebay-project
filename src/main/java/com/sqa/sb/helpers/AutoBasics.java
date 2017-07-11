@@ -2,11 +2,11 @@ package com.sqa.sb.helpers;
 
 import java.io.*;
 import java.util.*;
-import java.util.NoSuchElementException;
 
 import org.apache.commons.io.*;
 import org.apache.log4j.*;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 
 public class AutoBasics {
 

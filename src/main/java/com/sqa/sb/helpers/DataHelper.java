@@ -12,13 +12,6 @@ import org.apache.poi.xssf.usermodel.*;
 import com.sqa.sb.helpers.enums.*;
 import com.sqa.sb.helpers.exceptions.*;
 
-/**
- * DataHelper Class to handle reading data from different sources.
- *
- * @author Nepton, Jean-francois
- * @version 1.0.0
- * @since 1.0
- */
 public class DataHelper {
 
 	public static void clearArray(Object[][] array) {
@@ -64,7 +57,8 @@ public class DataHelper {
 	 * @throws DataTypesCountException
 	 * @throws DataTypesTypeException
 	 */
-	public static Object[][] evalDatabaseTable(String driverClassString, String databaseStringUrl, String username, String password, String tableName) throws ClassNotFoundException, SQLException, DataTypesMismatchException, DataTypesCountException, DataTypesTypeException {
+	public static Object[][] evalDatabaseTable(String driverClassString, String databaseStringUrl, String username, String password, String tableName)
+			throws ClassNotFoundException, SQLException, DataTypesMismatchException, DataTypesCountException, DataTypesTypeException {
 		// Method calls overloaded method which sets no
 		// offset for col or row in
 		// the case you wanted to offset your data retrieved
@@ -92,7 +86,9 @@ public class DataHelper {
 	 * @throws DataTypesCountException
 	 * @throws DataTypesTypeException
 	 */
-	public static Object[][] evalDatabaseTable(String driverClassString, String databaseStringUrl, String username, String password, String tableName, int rowOffset, int colOffset, DataType[] dataTypes) throws DataTypesMismatchException, ClassNotFoundException, SQLException, DataTypesCountException, DataTypesTypeException {
+	public static Object[][] evalDatabaseTable(String driverClassString, String databaseStringUrl, String username, String password,
+			String tableName, int rowOffset, int colOffset, DataType[] dataTypes) throws DataTypesMismatchException, ClassNotFoundException,
+			SQLException, DataTypesCountException, DataTypesTypeException {
 		// 2D Array of Objects to hold data object to be
 		// returned
 		Object[][] myData;
@@ -355,7 +351,8 @@ public class DataHelper {
 	 * @param sheet
 	 * @return
 	 */
-	private static ArrayList<Object> collectExcelData(Boolean hasLabels, InputStream newExcelFormatFile, ArrayList<Object> results, Workbook workbook, Sheet sheet) {
+	private static ArrayList<Object> collectExcelData(Boolean hasLabels, InputStream newExcelFormatFile, ArrayList<Object> results,
+			Workbook workbook, Sheet sheet) {
 		try {
 			Iterator<Row> rowIterator = sheet.iterator();
 			if (hasLabels) {
@@ -548,7 +545,7 @@ public class DataHelper {
 		if (hasLabels) {
 			lines.remove(0);
 		}
-		String pattern = "(,*)([a-zA-Z0-9\\s-\\\\\\/\\\"]+)(,*)";
+		String pattern = "(,*)([a-zA-Z0-9\\s-\\\\\\/\\\"\\.]+)(,*)";
 		Pattern r = Pattern.compile(pattern);
 		for (int i = 0; i < lines.size(); i++) {
 			int curDataType = 0;
